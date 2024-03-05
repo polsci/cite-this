@@ -1,0 +1,12 @@
+<div id="cite-this">
+    <h3>Cite:</h3>
+    <p class="cite-apa">
+      {% if page.author_cite_abbreviated.first %}{{ page.author_cite_abbreviated | array_to_sentence_string: "&amp;" }}{% else %}{{ page.author_cite_abbreviated }}{% endif %} ({{ page.date | date: "%Y, %B %-d" }}). {{ page.title }}. <em>{{ site.cite_source }}.</em>
+      {{ site.url }}{{ page.url }}
+    </p>
+    <ul>
+      <li><a href="/cite{{ page.url }}.bib" class="cite-bibtex">BibTex</a></li>
+      <li><a href="/cite{{ page.url }}.enw" class="cite-endnote">EndNote</a></li>
+      <li><a href="/cite{{ page.url }}.ris" class="cite-refman">RefMan</a></li>
+    </ul>
+</div>
