@@ -1,0 +1,8 @@
+{% assign page_to_cite = page.url | replace: ".enw", "" | replace: "/cite", "" %}{% assign thepost = site.posts | where:"url", page_to_cite %}{% for post in thepost %}%0 Web Page{% for author in post.author_cite %}
+%A {{ author }}{% endfor %}
+%D {{ post.date | date: "%Y" }}
+%8 {{ post.date | date: "%B %d" }}
+%T {{ post.title }}
+%I {{ site.cite_source }}
+%U {{ site.url }}{{ post.url }}
+{% endfor %}

@@ -1,0 +1,9 @@
+{% assign page_to_cite = page.url | replace: ".ris", "" | replace: "/cite", "" %}{% assign thepost = site.posts | where:"url", page_to_cite %}{% for post in thepost %}TY  - WEB{% for author in post.author_cite %}
+AU  - {{ author }}{% endfor %}
+PY  - {{ post.date | date: "%Y" }}
+DA  - {{ post.date | date: "%Y/%m/%d" }}
+TI  - {{ post.title }}
+T2  - {{ site.cite_source }}
+UR  - {{ site.url }}{{ post.url }}
+ER  -
+{% endfor %}

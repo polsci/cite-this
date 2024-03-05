@@ -1,0 +1,10 @@
+{% assign sb = "{" %}{% assign eb = "}" %}{% assign page_to_cite = page.url | replace: ".bib", "" | replace: "/cite", "" %}{% assign thepost = site.posts | where: "url", page_to_cite %}{% for post in thepost %}@Misc{{ sb }}{{ post.cite_identifier }},
+author={{ sb }}{{ post.author_cite | join: " AND " }}{{ eb }},
+title={{ sb }}{{ post.title }}{{ eb }},
+year={{ sb }}{{ post.date | date: "%Y" }}{{ eb }},
+month={{ sb }}{{ post.date | date: "%b" }}{{ eb }},
+day={{ sb }}{{ post.date | date: "%d" }}{{ eb }},
+url={{ sb }}{{ site.url }}{{ post.url }}{{ eb }},
+institution={{ sb }}{{ site.cite_source }}{{ eb }}
+{{ eb }}
+{% endfor %}
